@@ -1,12 +1,25 @@
 @import-normalize; /* bring in normalize.css styles */
 
+:root {
+  --mainTextCl: #121417;
+  --secondTextCl: rgba(18, 20, 23, 0.5);
+  --blueCl: #3470FF;
+  --hoverBlueCl: #0B44CD;
+  --whiteCl: #FFFFFF;
+  --greyText: #8A8A89;
+  --inputBg: #F7F7FB;
+  --inputTexst: rgba(18, 20, 23, 0.2);
+  --inputBorder: rgba(18, 20, 23, 0.05);
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #FFFFFF;
+  color: var(--mainTextCl);
 }
 
 code {
@@ -40,4 +53,7 @@ img {
 button {
   padding: 0;
   display: block;
+  border: none;
+  margin: 0;
+  padding: 0;
 }
