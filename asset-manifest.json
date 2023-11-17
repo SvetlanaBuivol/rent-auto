@@ -1,13 +1,19 @@
 {
   "files": {
-    "main.css": "/rent-auto/static/css/main.7acaea2f.css",
-    "main.js": "/rent-auto/static/js/main.07d3183d.js",
+    "main.css": "/rent-auto/static/css/main.6b5bd889.css",
+    "main.js": "/rent-auto/static/js/main.fe0f9e70.js",
+    "static/js/544.9c958d29.chunk.js": "/rent-auto/static/js/544.9c958d29.chunk.js",
+    "static/js/581.f3eeccf8.chunk.js": "/rent-auto/static/js/581.f3eeccf8.chunk.js",
+    "static/js/733.27f1e36a.chunk.js": "/rent-auto/static/js/733.27f1e36a.chunk.js",
     "index.html": "/rent-auto/index.html",
-    "main.7acaea2f.css.map": "/rent-auto/static/css/main.7acaea2f.css.map",
-    "main.07d3183d.js.map": "/rent-auto/static/js/main.07d3183d.js.map"
+    "main.6b5bd889.css.map": "/rent-auto/static/css/main.6b5bd889.css.map",
+    "main.fe0f9e70.js.map": "/rent-auto/static/js/main.fe0f9e70.js.map",
+    "544.9c958d29.chunk.js.map": "/rent-auto/static/js/544.9c958d29.chunk.js.map",
+    "581.f3eeccf8.chunk.js.map": "/rent-auto/static/js/581.f3eeccf8.chunk.js.map",
+    "733.27f1e36a.chunk.js.map": "/rent-auto/static/js/733.27f1e36a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7acaea2f.css",
-    "static/js/main.07d3183d.js"
+    "static/css/main.6b5bd889.css",
+    "static/js/main.fe0f9e70.js"
   ]
 }
