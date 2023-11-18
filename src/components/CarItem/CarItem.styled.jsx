@@ -44,4 +44,9 @@ export const LearnMoreBtn = styled.button`
     color: var(--whiteCl);
     border-radius: 12px;
     font-weight: 600;
+    transition: background-color 250ms ease-in;
+
+    :hover {
+        background-color: var(--hoverBlueCl);
+    }
 `

@@ -5,7 +5,8 @@ const advertsSlice = createSlice({
   name: 'adverts',
   initialState: {
       adverts: [],
-      favorites: [],
+    favorites: [],
+    currentPage: 1,
     loading: false,
     error: null,
   },
@@ -18,16 +19,25 @@ const advertsSlice = createSlice({
             } else {
                 
             state.favorites = [...state.favorites, payload]}
+      },
+      incrementPage: (state) => {
+        state.currentPage += 1;
+        console.log('Increment: ', state.currentPage)
       }
   },
   extraReducers: builder => {
     builder
       .addCase(fetchAllAdvertssAsync.pending, state => {
         state.loading = true;
+        state.error = null;
       })
       .addCase(fetchAllAdvertssAsync.fulfilled, (state, action) => {
         state.loading = false;
-        state.adverts = action.payload;
+        action.payload.forEach(newAdvert => {
+          if (!state.adverts.some(advert => advert.id === newAdvert.id)) {
+            state.adverts.push(newAdvert)
+          }
+        })
       })
       .addCase(fetchAllAdvertssAsync.rejected, (state, action) => {
         state.loading = false;
@@ -36,5 +46,5 @@ const advertsSlice = createSlice({
   },
 });
 
-export const { toggleFavorites } = advertsSlice.actions;
+export const { toggleFavorites, incrementPage } = advertsSlice.actions;
 export default advertsSlice.reducer;
