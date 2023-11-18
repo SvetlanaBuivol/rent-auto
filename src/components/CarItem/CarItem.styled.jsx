@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 export const AdvertCard = styled.li`
+position: relative;
   width: 274px;
  overflow: hidden;
 `;
@@ -49,4 +50,10 @@ export const LearnMoreBtn = styled.button`
     :hover {
         background-color: var(--hoverBlueCl);
     }
+`;
+
+export const HeartBtn = styled.button`
+    position: absolute;
+    left: 242px;
+    top: 14px;
 `
