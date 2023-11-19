@@ -10,6 +10,7 @@ import {
   persistReducer,
 } from 'redux-persist';
 import advertsReducer from './adverts/advertsSlice';
+import filterReducer from './filter/filterSlice';
 import storage from 'redux-persist/lib/storage';
 
 const persistConfig = {
@@ -22,7 +23,8 @@ const persistedReducer = persistReducer(persistConfig, advertsReducer);
 
 const store = configureStore({
   reducer: {
-        adverts: persistedReducer,
+    adverts: persistedReducer,
+    filteredAdverts: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

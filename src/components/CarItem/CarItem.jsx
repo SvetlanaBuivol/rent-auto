@@ -33,14 +33,13 @@ const CarItem = ({ car }) => {
     functionalities,
     // accessories,
     address,
-    // mileage,
+    mileage,
   } = car;
-
+    
+    console.log(mileage)
     const dispatch = useDispatch();
     const favorites = useSelector(selectFavoriteAdverts)
     const isFavorite = favorites.some(advert => advert.id === id)
-    console.log(favorites)
-    console.log(isFavorite)
 
   const handleToggleFavorites = car => {
     dispatch(toggleFavorites(car));

@@ -1,0 +1,1 @@
+export const selectFilteredAdverts = state => state.filteredAdverts.filteredAdverts;
