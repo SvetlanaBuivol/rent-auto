@@ -5,7 +5,7 @@ import prices from '../../assets/data/prices.json';
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/filter/filterSlice';
 
-const Selects = ({ adverts }) => {
+const Selects = ({adverts}) => {
   const [selectedMake, setSelectedMake] = useState(null);
   const [selectedPrice, setSelectedPrice] = useState(null);
     const [filterStatus, setFilterStatus] = useState(null);
@@ -25,7 +25,7 @@ const Selects = ({ adverts }) => {
       label: price.toString(),
     };
   });
-
+    
     useEffect(() => {
         if (isFiltering) {
             filterAdverts();
@@ -50,19 +50,19 @@ const Selects = ({ adverts }) => {
       );
       }
       
-    //   if ((mileageRange.from !== '' && mileageRange.to === '') || (mileageRange.from === '' && mileageRange.to !== '')) {
-    //       setFilterStatus('Both "From" and "To" mileage values are required.')
-    //       return;
-    //   }
-      
-      if (mileageRange.from !== '' || mileageRange.to !== '') {
-          const from = parseFloat(mileageRange.from);
-          const to = parseFloat(mileageRange.to);
+    //   if (mileageRange.from !== '' || mileageRange.to !== '') {
+    //       const from = parseFloat(mileageRange.from);
+    //       const to = parseFloat(mileageRange.to);
 
-          if (!isNaN(from) && !isNaN(to)) {
-              filteredAdverts = filteredAdverts.filter(advert => advert.mileage >= from && advert.mileage <= to)
-          }
-      }
+    //       if (!isNaN(from) && !isNaN(to)) {
+    //           filteredAdverts = filteredAdverts.filter(advert => advert.mileage >= from && advert.mileage <= to)
+    //       }
+      //   }
+      
+      const from = mileageRange.from !== '' ? parseInt(mileageRange.from, 10) : 0;
+      const to = mileageRange.to !== '' ? parseInt(mileageRange.to, 10) : 1000000;
+
+      filteredAdverts = filteredAdverts.filter(advert => advert.mileage >= from && advert.mileage <= to)
 
     if (filteredAdverts.length === 0) {
       setFilterStatus('No adverts match your criteria');
@@ -93,6 +93,8 @@ const Selects = ({ adverts }) => {
     }
 
     const handleSearch = () => {
+        console.log('From: ', mileageRange.from)
+        console.log('To: ', mileageRange.to)
         setIsFiltering(true);
     }
 

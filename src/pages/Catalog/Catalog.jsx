@@ -13,7 +13,7 @@ const Catalog = () => {
   const filteredAdverts = useSelector(selectFilteredAdverts);
   const dispatch = useDispatch();
 
-  console.log(filteredAdverts);
+    console.log(filteredAdverts);
 
   const handleLoadMore = () => {
     dispatch(incrementPage());
@@ -31,7 +31,9 @@ const Catalog = () => {
     <div>
       <Selects adverts={allAdverts} />
       <CarsList
-        filteredAdverts={filteredAdverts.length > 0 ? filteredAdverts : allAdverts}
+        filteredAdverts={
+          filteredAdverts.length > 0 ? filteredAdverts : allAdverts
+        }
         isLastPage={isLastPage}
         handleLoadMore={handleLoadMore}
       />
