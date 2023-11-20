@@ -1,6 +1,6 @@
 import React from 'react';
 
-const checkText = (word) => {
+const checkText = word => {
   if (!word) return;
   const index = word.search(/: /);
   if (index !== -1) {

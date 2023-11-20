@@ -5,16 +5,14 @@ import { selectFavoriteAdverts } from 'redux/adverts/advertsSelectors';
 import HeaderTitle from 'components/HeaderTitle/HeaderTitle';
 
 const Favorites = () => {
-  const favoritesAdverts = useSelector(selectFavoriteAdverts)
+  const favoritesAdverts = useSelector(selectFavoriteAdverts);
 
   return (
     <>
       <HeaderTitle title={'Favorites'} />
-      <CarsList
-        filteredAdverts={favoritesAdverts}
-      />
+      <CarsList filteredAdverts={favoritesAdverts} />
     </>
-    )
+  );
 };
 
 export default Favorites;

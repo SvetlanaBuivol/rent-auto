@@ -26,27 +26,32 @@ export const selectFilteredAdverts = createSelector(
         ? numCarPrice <= numFilterPrice
         : true;
       const isMileageFromValid =
-        mileage.from !== undefined ? car.mileage >= parseInt(mileage.from, 10) : true;
+        mileage.from !== undefined
+          ? car.mileage >= parseInt(mileage.from, 10)
+          : true;
       const isMileageToValid =
-            mileage.to !== undefined ? car.mileage <= parseInt(mileage.to, 10) : true;
-    
-        return (
-           (make && rentalPrice && mileage.from && mileage.to) ? 
-          (isMakeValid && isRentalPriceValid && isMileageFromValid && isMileageToValid) :
-        (make && rentalPrice) ? 
-          (isMakeValid && isRentalPriceValid) :
-        (make && mileage.from && mileage.to) ?
-          (isMakeValid && isMileageFromValid && isMileageToValid) :
-        (rentalPrice && mileage.from && mileage.to) ?
-          (isRentalPriceValid && isMileageFromValid && isMileageToValid) :
-        (make) ? 
-          (isMakeValid) :
-        (rentalPrice) ?
-          (isRentalPriceValid) :
-        (mileage.from && mileage.to) ?
-          (isMileageFromValid && isMileageToValid) :
-        adverts
-      );
+        mileage.to !== undefined
+          ? car.mileage <= parseInt(mileage.to, 10)
+          : true;
+
+      return make && rentalPrice && mileage.from && mileage.to
+        ? isMakeValid &&
+            isRentalPriceValid &&
+            isMileageFromValid &&
+            isMileageToValid
+        : make && rentalPrice
+        ? isMakeValid && isRentalPriceValid
+        : make && mileage.from && mileage.to
+        ? isMakeValid && isMileageFromValid && isMileageToValid
+        : rentalPrice && mileage.from && mileage.to
+        ? isRentalPriceValid && isMileageFromValid && isMileageToValid
+        : make
+        ? isMakeValid
+        : rentalPrice
+        ? isRentalPriceValid
+        : mileage.from && mileage.to
+        ? isMileageFromValid && isMileageToValid
+        : adverts;
     });
   }
 );

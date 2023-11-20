@@ -3,11 +3,7 @@ import Select from 'react-select';
 import makes from '../../assets/data/makes.json';
 import prices from '../../assets/data/prices.json';
 import { useDispatch } from 'react-redux';
-import {
-  setMake,
-  setMileage,
-  setRentalPrice,
-} from 'redux/filter/filterSlice';
+import { setMake, setMileage, setRentalPrice } from 'redux/filter/filterSlice';
 import {
   FromInput,
   FromToContainer,

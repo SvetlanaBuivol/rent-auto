@@ -1,12 +1,12 @@
 import styled from '@emotion/styled';
 
 export const ModalImgContainer = styled.div`
-    height: 248px;
+  height: 248px;
   width: 100%;
   border-radius: 14px;
   overflow: hidden;
   margin-bottom: 14px;
-`
+`;
 
 export const ModalImg = styled.img`
   height: 100%;
@@ -75,15 +75,15 @@ export const ModalTextBtn = styled.div`
 `;
 
 export const RentCar = styled.button`
-     width: 168px;
-    height: 44px;
-    background-color: var(--blueCl);
-    color: var(--whiteCl);
-    border-radius: 12px;
-    font-weight: 600;
-    transition: background-color 250ms ease-in;
+  width: 168px;
+  height: 44px;
+  background-color: var(--blueCl);
+  color: var(--whiteCl);
+  border-radius: 12px;
+  font-weight: 600;
+  transition: background-color 250ms ease-in;
 
-    :hover {
-        background-color: var(--hoverBlueCl);
-    }
-`
+  :hover {
+    background-color: var(--hoverBlueCl);
+  }
+`;

@@ -19,8 +19,6 @@ import blueHeart from '../../assets/svg/blueHeart.svg';
 import { selectFavoriteAdverts } from 'redux/adverts/advertsSelectors';
 import ModalWrapper from 'components/Modal/ModalWrapper/ModalWrapper';
 import ModalAdvertContent from 'components/Modal/ModalAdvertContent/ModalAdvertContent';
-// import { useDispatch, useSelector } from "react-redux";
-// import { favoritesSelector } from "redux/favorites/favoritesSelector";
 
 const CarItem = ({ car }) => {
   const {
@@ -33,12 +31,10 @@ const CarItem = ({ car }) => {
     rentalCompany,
     type,
     functionalities,
-    // accessories,
     address,
-    // mileage,
-    } = car;
-    
-    const [modalIsOpen, setModalIsOpen] = useState(false);
+  } = car;
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   const dispatch = useDispatch();
   const favorites = useSelector(selectFavoriteAdverts);
@@ -46,18 +42,17 @@ const CarItem = ({ car }) => {
 
   const handleToggleFavorites = car => {
     dispatch(toggleFavorites(car));
-    };
-    
-    const openModal = () => {
-        setModalIsOpen(true);
-    };
+  };
 
-    const closeModal = () => {
-        setModalIsOpen(false)
-    }
+  const openModal = () => {
+    setModalIsOpen(true);
+  };
 
-    const formattedAddress = getAddressString(address);
-    
+  const closeModal = () => {
+    setModalIsOpen(false);
+  };
+
+  const formattedAddress = getAddressString(address);
 
   return (
     <AdvertCard>
@@ -79,11 +74,13 @@ const CarItem = ({ car }) => {
         {`${rentalCompany} | ${type} | ${id} | ${functionalities[0]}`}
       </CarInfo>
 
-          <LearnMoreBtn type="button" onClick={openModal}>Learn more</LearnMoreBtn>
-          
-          <ModalWrapper isOpen={modalIsOpen} onClose={closeModal}>
-              <ModalAdvertContent car={car} />
-          </ModalWrapper>
+      <LearnMoreBtn type="button" onClick={openModal}>
+        Learn more
+      </LearnMoreBtn>
+
+      <ModalWrapper isOpen={modalIsOpen} onClose={closeModal}>
+        <ModalAdvertContent car={car} />
+      </ModalWrapper>
     </AdvertCard>
   );
 };

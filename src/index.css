@@ -4,12 +4,12 @@
   --mainTextCl: #121417;
   --secondTextCl: rgba(18, 20, 23, 0.5);
   --modalTextCl: #363535;
-  --blueCl: #3470FF;
-  --hoverBlueCl: #0B44CD;
-  --whiteCl: #FFFFFF;
-  --greyText: #8A8A89;
-  --inputBg: #F7F7FB;
-  --modalBgText: #F9F9F9;
+  --blueCl: #3470ff;
+  --hoverBlueCl: #0b44cd;
+  --whiteCl: #ffffff;
+  --greyText: #8a8a89;
+  --inputBg: #f7f7fb;
+  --modalBgText: #f9f9f9;
   --inputTexst: rgba(18, 20, 23, 0.2);
   --inputBorder: rgba(18, 20, 23, 0.05);
 }
@@ -21,7 +21,7 @@ body {
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   color: var(--mainTextCl);
 }
 

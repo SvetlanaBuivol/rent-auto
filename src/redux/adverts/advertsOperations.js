@@ -19,7 +19,7 @@ export const fetchAllAdvertssAsync = createAsyncThunk(
     }
   }
 );
- export const fetchCarsAsync = createAsyncThunk(
+export const fetchCarsAsync = createAsyncThunk(
   'adverts/fetchAllAdverts',
   async (_, thunkAPI) => {
     try {
