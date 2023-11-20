@@ -24,7 +24,7 @@ const persistedReducer = persistReducer(persistConfig, advertsReducer);
 const store = configureStore({
   reducer: {
     adverts: persistedReducer,
-    filteredAdverts: filterReducer,
+    filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

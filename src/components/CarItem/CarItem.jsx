@@ -33,10 +33,9 @@ const CarItem = ({ car }) => {
     functionalities,
     // accessories,
     address,
-    mileage,
+    // mileage,
   } = car;
     
-    console.log(mileage)
     const dispatch = useDispatch();
     const favorites = useSelector(selectFavoriteAdverts)
     const isFavorite = favorites.some(advert => advert.id === id)
@@ -46,7 +45,6 @@ const CarItem = ({ car }) => {
   };
 
   const formattedAddress = getAddressString(address);
-
   return (
     <AdvertCard>
       <CarImg src={img} alt={`${make} ${model}`} />

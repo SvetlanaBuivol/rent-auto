@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { fetchAllAdvertssAsync } from './advertsOperations';
+import { fetchAllAdvertssAsync, fetchCarsAsync } from './advertsOperations';
 
 const advertsSlice = createSlice({
   name: 'adverts',
   initialState: {
-      adverts: [],
+    adverts: [],
+    allAdverts: [],
     favorites: [],
     currentPage: 1,
     loading: false,
@@ -40,6 +41,18 @@ const advertsSlice = createSlice({
         })
       })
       .addCase(fetchAllAdvertssAsync.rejected, (state, action) => {
+        state.loading = false;
+        state.error = action.error.message;
+      })
+      .addCase(fetchCarsAsync.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(fetchCarsAsync.fulfilled, (state, action) => {
+        state.loading = false;
+        state.allAdverts = action.payload;
+      })
+      .addCase(fetchCarsAsync.rejected, (state, action) => {
         state.loading = false;
         state.error = action.error.message;
       })

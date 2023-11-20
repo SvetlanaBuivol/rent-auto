@@ -19,4 +19,14 @@ export const fetchAllAdvertssAsync = createAsyncThunk(
     }
   }
 );
-
+ export const fetchCarsAsync = createAsyncThunk(
+  'adverts/fetchAllAdverts',
+  async (_, thunkAPI) => {
+    try {
+      const response = await axios.get('/adverts');
+      return response.data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
