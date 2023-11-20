@@ -4,19 +4,16 @@ import makes from '../../assets/data/makes.json';
 import prices from '../../assets/data/prices.json';
 import { useDispatch } from 'react-redux';
 import {
-  resetFilter,
   setMake,
   setMileage,
   setRentalPrice,
 } from 'redux/filter/filterSlice';
-import { fetchCarsAsync } from 'redux/adverts/advertsOperations';
 import {
   FromInput,
   FromToContainer,
   SearchBtn,
   SelectContainer,
   SelectName,
-  StyledSelect,
   ToInput,
   customSelectFrom,
   customSelectTo,
