@@ -1,5 +1,5 @@
 // import { getAddressString } from "helpers/getAddressString";
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { toggleFavorites } from 'redux/adverts/advertsSlice';
 import {
@@ -15,8 +15,10 @@ import {
 import { getAddressString } from 'helpers/getAddressString';
 import { ReactSVG } from 'react-svg';
 import heart from '../../assets/svg/heart.svg';
-import blueHeart from '../../assets/svg/blueHeart.svg'
+import blueHeart from '../../assets/svg/blueHeart.svg';
 import { selectFavoriteAdverts } from 'redux/adverts/advertsSelectors';
+import ModalWrapper from 'components/Modal/ModalWrapper/ModalWrapper';
+import ModalAdvertContent from 'components/Modal/ModalAdvertContent/ModalAdvertContent';
 // import { useDispatch, useSelector } from "react-redux";
 // import { favoritesSelector } from "redux/favorites/favoritesSelector";
 
@@ -34,22 +36,38 @@ const CarItem = ({ car }) => {
     // accessories,
     address,
     // mileage,
-  } = car;
+    } = car;
     
-    const dispatch = useDispatch();
-    const favorites = useSelector(selectFavoriteAdverts)
-    const isFavorite = favorites.some(advert => advert.id === id)
+    const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const dispatch = useDispatch();
+  const favorites = useSelector(selectFavoriteAdverts);
+  const isFavorite = favorites.some(advert => advert.id === id);
 
   const handleToggleFavorites = car => {
     dispatch(toggleFavorites(car));
-  };
+    };
+    
+    const openModal = () => {
+        setModalIsOpen(true);
+    };
 
-  const formattedAddress = getAddressString(address);
+    const closeModal = () => {
+        setModalIsOpen(false)
+    }
+
+    const formattedAddress = getAddressString(address);
+    
+
   return (
     <AdvertCard>
       <CarImg src={img} alt={`${make} ${model}`} />
-          <HeartBtn type="button" onClick={() => handleToggleFavorites(car)}>
-              {isFavorite ? (<ReactSVG src={blueHeart} style={{fill: 'blue'}}/>) : (<ReactSVG src={heart} style={{ fill: 'blue' }} />)}           
+      <HeartBtn type="button" onClick={() => handleToggleFavorites(car)}>
+        {isFavorite ? (
+          <ReactSVG src={blueHeart} style={{ fill: 'blue' }} />
+        ) : (
+          <ReactSVG src={heart} style={{ fill: 'blue' }} />
+        )}
       </HeartBtn>
 
       <CarHeadWrap>
@@ -61,7 +79,11 @@ const CarItem = ({ car }) => {
         {`${rentalCompany} | ${type} | ${id} | ${functionalities[0]}`}
       </CarInfo>
 
-      <LearnMoreBtn type="button">Learn more</LearnMoreBtn>
+          <LearnMoreBtn type="button" onClick={openModal}>Learn more</LearnMoreBtn>
+          
+          <ModalWrapper isOpen={modalIsOpen} onClose={closeModal}>
+              <ModalAdvertContent car={car} />
+          </ModalWrapper>
     </AdvertCard>
   );
 };
