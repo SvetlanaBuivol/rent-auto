@@ -20,3 +20,15 @@ export const MainContainer = styled.div`
     padding-bottom: 150px;
     }
 `
+
+export const HeaderStyled = styled.header`
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--inputTexst);
+    backdrop-filter: blur(20px);
+    padding-top: 18px;
+    padding-bottom: 18px;
+    z-index: 1000;
+`

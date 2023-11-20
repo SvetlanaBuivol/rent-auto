@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import CarsList from 'components/CarsList/CarsList';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { selectFavoriteAdverts } from 'redux/adverts/advertsSelectors';
 import HeaderTitle from 'components/HeaderTitle/HeaderTitle';
 
