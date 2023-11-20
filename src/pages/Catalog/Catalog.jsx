@@ -13,8 +13,6 @@ const Catalog = () => {
   const currentPage = useSelector(state => state.adverts.currentPage);
   const filteredAdverts = useSelector(selectFilteredAdverts);
     const dispatch = useDispatch();
-    
-    console.log('Filtered in Catalog: ', filteredAdverts)
 
   const handleLoadMore = () => {
     dispatch(incrementPage());

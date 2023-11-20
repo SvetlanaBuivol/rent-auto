@@ -27,7 +27,8 @@ const ModalAdvertContent = ({ car }) => {
                 <ModalTextBtn>Mileage:<span>{car.mileage && car.mileage / 1000}</span></ModalTextBtn>
                 <ModalTextBtn>Price:<span>{ car.rentalPrice && car.rentalPrice.slice(1)}$</span></ModalTextBtn>
             </TextBtnWrapper>
-            <RentCar type="button">Rental car</RentCar>
+
+                <RentCar type="button" onClick={() => (document.location = "tel:+380730000000")}>Rental car</RentCar>
         </>
         
     )

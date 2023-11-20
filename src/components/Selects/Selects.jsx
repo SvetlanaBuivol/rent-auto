@@ -95,12 +95,16 @@ const Selects = () => {
             placeholder="From"
             value={mileageRange.from}
             onChange={e => handleMileageChange('from', e.target.value)}
+            min="0"
+            step="500"
           />
           <ToInput
             type="number"
             placeholder="To"
             value={mileageRange.to}
             onChange={e => handleMileageChange('to', e.target.value)}
+            min="0"
+            step="500"
           />
         </FromToContainer>
       </div>

@@ -24,3 +24,8 @@ margin-right: auto;
         color: var(--hoverBlueCl);
     }
 `
+
+export const NotifyMessage = styled.p`
+    text-align: center;
+    color: var(--greyText);
+`
