@@ -6,16 +6,11 @@ import {
   fetchAllAdvertssAsync,
   fetchCarsAsync,
 } from 'redux/adverts/advertsOperations';
-import {
-  selectAllAdverts,
-  selectAllCars,
-} from 'redux/adverts/advertsSelectors';
 import { incrementPage } from 'redux/adverts/advertsSlice';
 import { selectFilteredAdverts } from 'redux/filter/filterSelectors';
 
 const Catalog = () => {
   const currentPage = useSelector(state => state.adverts.currentPage);
-//   const allAdverts = useSelector(selectAllAdverts);
   const filteredAdverts = useSelector(selectFilteredAdverts);
     const dispatch = useDispatch();
     
@@ -29,6 +24,7 @@ const Catalog = () => {
   useEffect(() => {
     dispatch(fetchAllAdvertssAsync(currentPage));
     dispatch(fetchCarsAsync());
+     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch, currentPage, JSON.stringify(filteredAdverts)]);
 
   const totalAds = filteredAdverts.length;
